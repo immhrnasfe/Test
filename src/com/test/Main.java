@@ -1,7 +1,7 @@
+package com.test;
+
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import static java.awt.SystemColor.info;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 
