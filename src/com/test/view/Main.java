@@ -1,7 +1,10 @@
 package com.test.view;
 
+import com.test.controller.HolidayController;
 import com.test.controller.PersonalController;
+import com.test.model.entity.Holiday;
 import com.test.model.entity.Personal;
+import com.test.model.service.HolidayService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,11 +14,11 @@ public class Main {
 
 
     private static Scanner scanner;
-    private static PersonalController personalController;
+    private static PersonalController personalController = new PersonalController();
+    private static HolidayController holidayController = new HolidayController();
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        PersonalController personalController = new PersonalController();
 
 
         while (true) {
@@ -38,11 +41,11 @@ public class Main {
                     personal.setUsername(username);
                     personal.setNationalCode(nationalCode);
                     personal.setEmail(email);
-                    personal.setHoliday(holiday);
 
                     personalController.save(personal);
-
+                    holidayController.addHoliday(scanner, personal);
                     System.out.println("Personal information saved successfully.");
+
                     break;
                 case 2:
                     List<Personal> personalList = personalController.findAll();
@@ -71,14 +74,12 @@ public class Main {
                     if (updatePersonal == null) {
                         System.out.println("Personal information not found.");
                     } else {
-                        System.out.println("Enter new username (current: " + updatePersonal.getUsername() + "):");
+                        System.out.println("Enter new username " + updatePersonal.getUsername());
                         updatePersonal.setUsername(scanner.nextLine());
-                        System.out.println("Enter new nationalCode (current: " + updatePersonal.getNationalCode() + "):");
+                        System.out.println("Enter new nationalCode "+ updatePersonal.getNationalCode() );
                         updatePersonal.setNationalCode(scanner.nextLine());
-                        System.out.println("Enter new email (current: " + updatePersonal.getEmail() + "):");
+                        System.out.println("Enter new email" + updatePersonal.getEmail());
                         updatePersonal.setEmail(scanner.nextLine());
-                        System.out.println("Enter new holiday (current: " + updatePersonal.getHoliday() + "):");
-                        updatePersonal.setHoliday(scanner.nextLine());
 
                         boolean updated = personalController.update(updatePersonal);
                         if (updated) {

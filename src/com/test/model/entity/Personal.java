@@ -1,5 +1,7 @@
 package com.test.model.entity;
 
+import java.util.List;
+
 public class Personal {
     private static int idCounter = 0;
     private Long id;
@@ -7,7 +9,7 @@ public class Personal {
     private String email;
     private String nationalCode;
     //@OneToMany
-    private String holiday;
+    private Holiday holiday;
 
 
     public Personal() {
@@ -48,11 +50,11 @@ public class Personal {
         this.nationalCode = nationalCode;
     }
 
-    public String getHoliday() {
+    public Holiday getHoliday() {
         return holiday;
     }
 
-    public void setHoliday(String holiday) {
+    public void setHoliday(Holiday holiday) {
         this.holiday = holiday;
     }
 

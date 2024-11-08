@@ -1,24 +1,39 @@
-//package com.test.model.entity;
-//
-//import java.time.LocalDate;
-//import java.util.Date;
-//import java.util.Scanner;
-//
-//public class Holiday {
-//
-//    private LocalDate startDate;
-//    private LocalDate endDate;
-//    //@ManyToOne
-////    private PersonalInformation personal;
-//
-//    public void setStartDate(LocalDate startDate) {
-//        this.startDate = startDate;
-//    }
-//
-//    public void setEndDate(LocalDate endDate) {
-//        this.endDate = endDate;
-//    }
-//
+package com.test.model.entity;
+
+import java.time.LocalDate;
+
+public class Holiday {
+
+    private LocalDate startDate;
+    private LocalDate endDate;
+    //@ManyToOne
+    private Personal personal;
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
+    public void setPersonal(Personal personal) {
+        this.personal = personal;
+    }
+
+    public Personal getPersonal() {
+        return personal;
+    }
+
+    @Override
+    public String toString() {
+        return "Holiday{" +
+                "startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", personal=" + personal.getId() + " (" + personal.getId() + ")" +
+                '}';
+    }
+}
+
 //    public static void addHoliday(Scanner scanner) {
 //        System.out.println("com.test.Holiday");
 //
